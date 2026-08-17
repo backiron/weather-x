@@ -1,0 +1,16 @@
+.git
+.env
+.venv
+__pycache__
+.pytest_cache
+.ruff_cache
+.coverage
+htmlcov
+build
+dist
+*.egg-info
+exports
+data/private
+.DS_Store
+.idea
+.vscode

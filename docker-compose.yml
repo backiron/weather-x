@@ -1,0 +1,16 @@
+services:
+  weather-x:
+    build: .
+    environment:
+      WEATHERX_CONFIG: /app/examples/network.example.json
+      WEATHERX_OBSERVATIONS: /app/examples/observations.example.json
+      WEATHERX_EXPORT_DIR: /app/exports
+      WEATHERX_AS_OF: 2025-07-15T18:00:00Z
+    ports:
+      - "8080:8080"
+    volumes:
+      - weather-x-exports:/app/exports
+    restart: unless-stopped
+
+volumes:
+  weather-x-exports:

@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - name: Install
+        run: python -m pip install -e ".[dev]"
+      - name: Lint
+        run: |
+          python -m ruff check .
+          python -m ruff format --check .
+      - name: Test
+        run: python -m pytest -q
+      - name: Verify public-release boundary
+        run: python scripts/verify_public_release.py
+      - name: Verify release manifest
+        run: |
+          python scripts/verify_release_manifest.py
+          python scripts/build_release_manifest.py
+          git diff --exit-code -- release-manifest.json

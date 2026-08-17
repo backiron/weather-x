@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="450" viewBox="0 0 1200 450" role="img" aria-labelledby="title desc">
+  <title id="title">Causal availability and delayed-label timeline</title>
+  <desc id="desc">The observation is measured, received, used to freeze an estimate, later revealed as a reference value, and only then admitted to model learning.</desc>
+  <rect width="1200" height="450" fill="#f8fafc"/>
+  <text x="55" y="52" font-family="Inter,Arial,sans-serif" font-size="28" font-weight="700" fill="#0f172a">A historical value is not automatically a causal input</text>
+  <text x="55" y="82" font-family="Inter,Arial,sans-serif" font-size="15" fill="#64748b">The model can use only payloads received by the freeze time; the target residual remains sealed until reveal.</text>
+  <g font-family="Inter,Arial,sans-serif">
+    <line x1="100" y1="230" x2="1100" y2="230" stroke="#94a3b8" stroke-width="4"/>
+    <path d="M1100 230 l-14 -8 v16 z" fill="#94a3b8"/>
+
+    <rect x="100" y="122" width="185" height="76" rx="10" fill="#eff6ff" stroke="#93c5fd" stroke-width="2"/>
+    <text x="120" y="151" font-size="15" font-weight="700" fill="#1e3a8a">Observation measured</text>
+    <text x="120" y="177" font-size="20" fill="#2563eb">t_obs = 17:58:00</text>
+    <line x1="192" y1="198" x2="192" y2="230" stroke="#2563eb" stroke-width="3"/>
+    <circle cx="192" cy="230" r="8" fill="#2563eb"/>
+
+    <rect x="315" y="265" width="185" height="76" rx="10" fill="#f0fdfa" stroke="#5eead4" stroke-width="2"/>
+    <text x="335" y="294" font-size="15" font-weight="700" fill="#115e59">Payload received</text>
+    <text x="335" y="320" font-size="20" fill="#0f766e">t_recv = 17:58:08</text>
+    <line x1="407" y1="230" x2="407" y2="265" stroke="#0f766e" stroke-width="3"/>
+    <circle cx="407" cy="230" r="8" fill="#0f766e"/>
+
+    <rect x="530" y="122" width="185" height="76" rx="10" fill="#0f172a"/>
+    <text x="550" y="151" font-size="15" font-weight="700" fill="#ffffff">Estimate frozen</text>
+    <text x="550" y="177" font-size="20" fill="#93c5fd">t₀ = 18:00:00</text>
+    <line x1="622" y1="198" x2="622" y2="230" stroke="#0f172a" stroke-width="3"/>
+    <circle cx="622" cy="230" r="9" fill="#0f172a"/>
+
+    <rect x="745" y="265" width="185" height="76" rx="10" fill="#fff7ed" stroke="#fdba74" stroke-width="2"/>
+    <text x="765" y="294" font-size="15" font-weight="700" fill="#9a3412">Reference revealed</text>
+    <text x="765" y="320" font-size="20" fill="#ea580c">t_reveal = 19:00</text>
+    <line x1="837" y1="230" x2="837" y2="265" stroke="#ea580c" stroke-width="3"/>
+    <circle cx="837" cy="230" r="8" fill="#ea580c"/>
+
+    <rect x="960" y="122" width="185" height="76" rx="10" fill="#faf5ff" stroke="#d8b4fe" stroke-width="2"/>
+    <text x="980" y="151" font-size="15" font-weight="700" fill="#6b21a8">Residual admitted</text>
+    <text x="980" y="177" font-size="20" fill="#9333ea">state update ≥ 19:00</text>
+    <line x1="1052" y1="198" x2="1052" y2="230" stroke="#9333ea" stroke-width="3"/>
+    <circle cx="1052" cy="230" r="8" fill="#9333ea"/>
+
+    <rect x="515" y="365" width="340" height="46" rx="8" fill="#fee2e2" stroke="#fca5a5"/>
+    <text x="540" y="394" font-size="15" font-weight="700" fill="#991b1b">Leakage zone: current residual cannot update the model here</text>
+    <path d="M622 365 V350 H837 V365" fill="none" stroke="#ef4444" stroke-width="2"/>
+  </g>
+</svg>

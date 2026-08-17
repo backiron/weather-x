@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="610" viewBox="0 0 1200 610" role="img" aria-labelledby="title desc">
+  <title id="title">Strict historical evaluation of baseline and adapted model</title>
+  <desc id="desc">The adapted model improves mean absolute error, cross-threshold error, and 95th percentile absolute error, but retains a 35.59 percent cross-threshold rate.</desc>
+  <rect width="1200" height="610" fill="#f8fafc"/>
+  <text x="55" y="52" font-family="Inter,Arial,sans-serif" font-size="28" font-weight="700" fill="#0f172a">Continuous accuracy improved; threshold reliability remained insufficient</text>
+  <text x="55" y="82" font-family="Inter,Arial,sans-serif" font-size="15" fill="#64748b">Strict same-sample comparison: 413 reference points across 18 independent warm-season dates.</text>
+  <g font-family="Inter,Arial,sans-serif">
+    <g transform="translate(60,125)">
+      <text x="0" y="0" font-size="18" font-weight="700" fill="#0f172a">Mean absolute error</text>
+      <text x="0" y="24" font-size="13" fill="#64748b">Fahrenheit · lower is better</text>
+      <line x1="0" y1="365" x2="300" y2="365" stroke="#94a3b8" stroke-width="2"/>
+      <rect x="45" y="104" width="80" height="261" fill="#94a3b8"/>
+      <rect x="175" y="136" width="80" height="229" fill="#2563eb"/>
+      <text x="64" y="92" font-size="18" font-weight="700" fill="#0f172a">1.004</text>
+      <text x="195" y="124" font-size="18" font-weight="700" fill="#1d4ed8">0.882</text>
+      <text x="58" y="394" font-size="14" fill="#475569">Baseline</text>
+      <text x="188" y="394" font-size="14" fill="#475569">Adapted</text>
+      <text x="94" y="435" font-size="16" font-weight="700" fill="#0f766e">−0.122 F</text>
+    </g>
+
+    <g transform="translate(450,125)">
+      <text x="0" y="0" font-size="18" font-weight="700" fill="#0f172a">Cross-threshold error</text>
+      <text x="0" y="24" font-size="13" fill="#64748b">Percent · lower is better</text>
+      <line x1="0" y1="365" x2="300" y2="365" stroke="#94a3b8" stroke-width="2"/>
+      <rect x="45" y="112" width="80" height="253" fill="#94a3b8"/>
+      <rect x="175" y="151" width="80" height="214" fill="#ea580c"/>
+      <text x="59" y="100" font-size="18" font-weight="700" fill="#0f172a">42.13%</text>
+      <text x="189" y="139" font-size="18" font-weight="700" fill="#9a3412">35.59%</text>
+      <text x="58" y="394" font-size="14" fill="#475569">Baseline</text>
+      <text x="188" y="394" font-size="14" fill="#475569">Adapted</text>
+      <text x="72" y="435" font-size="16" font-weight="700" fill="#0f766e">−6.54 percentage points</text>
+    </g>
+
+    <g transform="translate(840,125)">
+      <text x="0" y="0" font-size="18" font-weight="700" fill="#0f172a">95th-percentile error</text>
+      <text x="0" y="24" font-size="13" fill="#64748b">Fahrenheit · lower is better</text>
+      <line x1="0" y1="365" x2="300" y2="365" stroke="#94a3b8" stroke-width="2"/>
+      <rect x="45" y="71" width="80" height="294" fill="#94a3b8"/>
+      <rect x="175" y="95" width="80" height="270" fill="#0f766e"/>
+      <text x="64" y="59" font-size="18" font-weight="700" fill="#0f172a">2.935</text>
+      <text x="195" y="83" font-size="18" font-weight="700" fill="#115e59">2.698</text>
+      <text x="58" y="394" font-size="14" fill="#475569">Baseline</text>
+      <text x="188" y="394" font-size="14" fill="#475569">Adapted</text>
+      <text x="92" y="435" font-size="16" font-weight="700" fill="#0f766e">−0.237 F</text>
+    </g>
+
+    <rect x="55" y="545" width="1090" height="42" rx="8" fill="#0f172a"/>
+    <text x="78" y="572" font-size="15" fill="#ffffff">The adapted model is measurably better, yet a 35.59% threshold-crossing rate rejects the original decision use.</text>
+  </g>
+</svg>

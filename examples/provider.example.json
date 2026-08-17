@@ -1,0 +1,18 @@
+{
+  "provider_name": "authorized_example_provider",
+  "endpoint": "https://example.invalid/weather/current",
+  "station_id": "SYNTH-PWS-01",
+  "headers": {
+    "User-Agent": "weather-x/0.1 contact@example.com"
+  },
+  "params_from_env": {
+    "access_token": "EXAMPLE_WEATHER_API_TOKEN"
+  },
+  "fields": {
+    "temperature_f": "observations.0.temperature_f",
+    "observed_at": "observations.0.observed_at",
+    "solar_radiation_wm2": "observations.0.solar_radiation_wm2",
+    "wind_speed_mph": "observations.0.wind_speed_mph",
+    "quality_control_passed": "observations.0.quality_control_passed"
+  }
+}

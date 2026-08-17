@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">Continuous uncertainty mapped to discrete temperature buckets</title>
+  <desc id="desc">A normal approximation centered at 88.49 Fahrenheit with sigma 0.88 produces probabilities of 28.5 percent for 86 to 88, 67 percent for 88 to 90, and 4.3 percent for 90 to 92.</desc>
+  <rect width="1200" height="620" fill="#f8fafc"/>
+  <text x="55" y="52" font-family="Inter,Arial,sans-serif" font-size="28" font-weight="700" fill="#0f172a">A small continuous error can become a categorical failure</text>
+  <text x="55" y="82" font-family="Inter,Arial,sans-serif" font-size="15" fill="#64748b">Synthetic demonstration: μ = 88.49 F, σ = 0.88 F, two-degree decision buckets.</text>
+  <g transform="translate(80,120)" font-family="Inter,Arial,sans-serif">
+    <rect width="850" height="410" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <g stroke="#e2e8f0" stroke-width="1">
+      <line x1="80" y1="350" x2="800" y2="350"/><line x1="80" y1="270" x2="800" y2="270"/>
+      <line x1="80" y1="190" x2="800" y2="190"/><line x1="80" y1="110" x2="800" y2="110"/>
+    </g>
+    <rect x="80" y="350" width="180" height="12" fill="#cbd5e1"/>
+    <rect x="260" y="235" width="180" height="127" fill="#60a5fa" fill-opacity="0.72"/>
+    <rect x="440" y="65" width="180" height="297" fill="#2563eb" fill-opacity="0.78"/>
+    <rect x="620" y="343" width="180" height="19" fill="#ea580c" fill-opacity="0.78"/>
+    <path d="M80 360 C155 358,205 350,260 330 C335 300,375 190,440 105 C485 48,530 35,575 70 C620 105,655 220,700 310 C735 350,770 358,800 360" fill="none" stroke="#0f172a" stroke-width="4"/>
+    <line x1="484" y1="42" x2="484" y2="365" stroke="#0f172a" stroke-width="2" stroke-dasharray="7 6"/>
+    <text x="495" y="55" font-size="14" font-weight="700" fill="#0f172a">μ = 88.49 F</text>
+    <line x1="440" y1="60" x2="440" y2="370" stroke="#ef4444" stroke-width="3"/>
+    <text x="325" y="48" font-size="14" font-weight="700" fill="#991b1b">Nearest boundary</text>
+    <path d="M418 54 H438" stroke="#ef4444" stroke-width="2" marker-end="url(#red-arrow)"/>
+    <text x="448" y="392" font-size="13" fill="#991b1b">d = 0.49 F</text>
+
+    <text x="140" y="335" font-size="16" font-weight="700" fill="#475569">0.22%</text>
+    <text x="318" y="220" font-size="18" font-weight="700" fill="#1e3a8a">28.51%</text>
+    <text x="498" y="92" font-size="18" font-weight="700" fill="#ffffff">66.99%</text>
+    <text x="676" y="327" font-size="16" font-weight="700" fill="#9a3412">4.27%</text>
+    <g font-size="14" fill="#475569">
+      <text x="145" y="388">84–86</text><text x="325" y="388">86–88</text>
+      <text x="505" y="388">88–90</text><text x="685" y="388">90–92</text>
+    </g>
+    <text x="355" y="435" font-size="14" font-weight="700" fill="#0f172a">Temperature bucket (F)</text>
+    <text x="-260" y="24" transform="rotate(-90)" font-size="14" font-weight="700" fill="#0f172a">Probability mass</text>
+  </g>
+  <g transform="translate(970,145)" font-family="Inter,Arial,sans-serif">
+    <text x="0" y="0" font-size="18" font-weight="700" fill="#0f172a">Decision geometry</text>
+    <text x="0" y="40" font-size="14" fill="#475569">The estimate is only</text>
+    <text x="0" y="64" font-size="32" font-weight="700" fill="#ef4444">0.49 F</text>
+    <text x="0" y="90" font-size="14" fill="#475569">above the 88 F boundary.</text>
+    <line x1="0" y1="120" x2="175" y2="120" stroke="#cbd5e1"/>
+    <text x="0" y="154" font-size="14" fill="#475569">Even with MAE below 1 F,</text>
+    <text x="0" y="178" font-size="14" fill="#475569">boundary proximity can keep</text>
+    <text x="0" y="202" font-size="14" fill="#475569">bucket error operationally large.</text>
+    <rect x="0" y="240" width="175" height="88" rx="9" fill="#0f172a"/>
+    <text x="16" y="270" font-size="13" fill="#cbd5e1">Correct-bucket mass</text>
+    <text x="16" y="310" font-size="30" font-weight="700" fill="#ffffff">66.99%</text>
+    <text x="0" y="375" font-size="13" fill="#64748b">This is a diagnostic model,</text>
+    <text x="0" y="396" font-size="13" fill="#64748b">not calibrated decision authority.</text>
+  </g>
+  <defs><marker id="red-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#ef4444"/></marker></defs>
+</svg>

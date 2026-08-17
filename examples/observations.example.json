@@ -1,0 +1,55 @@
+{
+  "description": "Synthetic observations for the Weather X demo. No provider data is included.",
+  "observations": [
+    {
+      "station_id": "SYNTH-PWS-01",
+      "temperature_f": 88.4,
+      "observed_at": "2025-07-15T17:58:00Z",
+      "received_at": "2025-07-15T17:58:08Z",
+      "solar_radiation_wm2": 640.0,
+      "wind_speed_mph": 7.0,
+      "quality_control_passed": true,
+      "source_revision": "demo-1"
+    },
+    {
+      "station_id": "SYNTH-PWS-02",
+      "temperature_f": 88.8,
+      "observed_at": "2025-07-15T17:57:00Z",
+      "received_at": "2025-07-15T17:57:12Z",
+      "solar_radiation_wm2": 670.0,
+      "wind_speed_mph": 6.0,
+      "quality_control_passed": true,
+      "source_revision": "demo-1"
+    },
+    {
+      "station_id": "SYNTH-PWS-03",
+      "temperature_f": 87.7,
+      "observed_at": "2025-07-15T17:56:00Z",
+      "received_at": "2025-07-15T17:56:11Z",
+      "solar_radiation_wm2": 590.0,
+      "wind_speed_mph": 5.0,
+      "quality_control_passed": true,
+      "source_revision": "demo-1"
+    },
+    {
+      "station_id": "SYNTH-PWS-04",
+      "temperature_f": 88.1,
+      "observed_at": "2025-07-15T17:58:00Z",
+      "received_at": "2025-07-15T17:58:07Z",
+      "solar_radiation_wm2": 620.0,
+      "wind_speed_mph": 8.0,
+      "quality_control_passed": true,
+      "source_revision": "demo-1"
+    },
+    {
+      "station_id": "SYNTH-PWS-05",
+      "temperature_f": 90.6,
+      "observed_at": "2025-07-15T17:55:00Z",
+      "received_at": "2025-07-15T17:55:15Z",
+      "solar_radiation_wm2": 860.0,
+      "wind_speed_mph": 2.0,
+      "quality_control_passed": true,
+      "source_revision": "demo-1"
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "target": {
+    "target_id": "SYNTHETIC-CENTER-X",
+    "latitude": 0.0000,
+    "longitude": 0.0000,
+    "elevation_ft": 1000.0,
+    "timezone": "UTC",
+    "description": "Synthetic coordinate-space center; not a real location"
+  },
+  "estimator": {
+    "lapse_rate_f_per_1000ft": 3.57,
+    "distance_scale_miles": 2.0,
+    "maximum_age_seconds": 900,
+    "base_sigma_f": 1.2,
+    "minimum_stations": 3,
+    "correlation_group_penalty_power": 0.5,
+    "sector_penalty_power": 0.35,
+    "sector_count": 8,
+    "threshold_bin_width_f": 2.0
+  },
+  "wind": {
+    "direction_from_deg": 230.0,
+    "speed_mph": 8.0,
+    "source": "synthetic_demo"
+  },
+  "stations": [
+    {
+      "station_id": "SYNTH-PWS-01",
+      "latitude": -0.0130,
+      "longitude": -0.0177,
+      "elevation_ft": 1040.0,
+      "reliability": 0.90,
+      "bias_f": 0.4,
+      "residual_sigma_f": 1.1,
+      "correlation_group": "southwest-a",
+      "note": "Synthetic upwind station"
+    },
+    {
+      "station_id": "SYNTH-PWS-02",
+      "latitude": -0.0070,
+      "longitude": -0.0146,
+      "elevation_ft": 1025.0,
+      "reliability": 0.84,
+      "bias_f": 0.2,
+      "residual_sigma_f": 1.3,
+      "correlation_group": "southwest-a",
+      "note": "Synthetic correlated neighbor"
+    },
+    {
+      "station_id": "SYNTH-PWS-03",
+      "latitude": 0.0190,
+      "longitude": -0.0115,
+      "elevation_ft": 970.0,
+      "reliability": 0.78,
+      "bias_f": -0.3,
+      "residual_sigma_f": 1.5,
+      "correlation_group": "northwest-b",
+      "note": "Synthetic northern station"
+    },
+    {
+      "station_id": "SYNTH-PWS-04",
+      "latitude": 0.0100,
+      "longitude": 0.0200,
+      "elevation_ft": 1070.0,
+      "reliability": 0.82,
+      "bias_f": 0.1,
+      "residual_sigma_f": 1.2,
+      "correlation_group": "east-c",
+      "note": "Synthetic eastern station"
+    },
+    {
+      "station_id": "SYNTH-PWS-05",
+      "latitude": -0.0200,
+      "longitude": 0.0131,
+      "elevation_ft": 1095.0,
+      "reliability": 0.73,
+      "bias_f": 0.8,
+      "residual_sigma_f": 1.7,
+      "correlation_group": "southeast-d",
+      "note": "Synthetic high-solar station"
+    }
+  ]
+}

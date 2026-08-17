@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Weather X experimental local-temperature inference dashboard"
+    />
+    <title>Weather X | Local Temperature Inference</title>
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Open sensor-fusion laboratory</p>
+          <h1>Weather <span>X</span></h1>
+          <p class="lede">
+            A causal estimate of local near-surface air temperature from imperfect,
+            crowd-sourced weather stations.
+          </p>
+        </div>
+        <div class="hero-actions">
+          <span id="status-pill" class="status-pill">Loading</span>
+          <button id="refresh-button" type="button">Refresh estimate</button>
+        </div>
+      </header>
+
+      <section class="notice">
+        <strong>Experimental research output.</strong>
+        Weather X is not an official observation and is not suitable for regulatory,
+        safety-critical, or other high-impact decisions.
+      </section>
+
+      <section class="summary-grid">
+        <article class="primary-card">
+          <p class="card-label">Estimated local temperature</p>
+          <div class="temperature"><span id="temperature">--</span><small>°F</small></div>
+          <p id="interval" class="interval">95% interval unavailable</p>
+          <div class="meta-row">
+            <span id="target-id">Target unavailable</span>
+            <span id="generated-at">Not generated</span>
+          </div>
+        </article>
+
+        <article class="metric-card">
+          <p class="card-label">Network spread</p>
+          <strong id="network-spread">--</strong>
+          <small>Weighted disagreement after correction</small>
+        </article>
+        <article class="metric-card">
+          <p class="card-label">Effective sample size</p>
+          <strong id="effective-sample">--</strong>
+          <small>Discounts correlated and directional duplicates</small>
+        </article>
+        <article class="metric-card">
+          <p class="card-label">Usable stations</p>
+          <strong id="station-count">--</strong>
+          <small id="configured-count">No network loaded</small>
+        </article>
+      </section>
+
+      <section class="content-grid">
+        <article class="panel network-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Spatial diagnostics</p>
+              <h2>Directional station network</h2>
+            </div>
+            <span id="wind-context" class="panel-tag">No wind context</span>
+          </div>
+          <div class="network-visual">
+            <div class="compass-label north">N</div>
+            <div class="compass-label east">E</div>
+            <div class="compass-label south">S</div>
+            <div class="compass-label west">W</div>
+            <div class="orbit orbit-one"></div>
+            <div class="orbit orbit-two"></div>
+            <div class="target-dot">X</div>
+            <div id="station-map"></div>
+          </div>
+          <p class="caption">
+            Radius represents distance from the target. Dot size and opacity represent final
+            normalized weight; positions show bearing, not exact coordinates.
+          </p>
+        </article>
+
+        <article class="panel">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Uncertainty</p>
+              <h2>Threshold distribution</h2>
+            </div>
+          </div>
+          <div id="distribution" class="distribution"></div>
+          <p class="caption">
+            Bins are diagnostic only. Continuous accuracy does not guarantee reliable threshold
+            classification.
+          </p>
+        </article>
+      </section>
+
+      <section class="panel station-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Explainable fusion</p>
+            <h2>Station contributions</h2>
+          </div>
+          <span class="panel-tag">No hidden application inputs</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Station</th>
+                <th>Raw</th>
+                <th>Corrected</th>
+                <th>Distance</th>
+                <th>Age</th>
+                <th>Sector</th>
+                <th>Weight</th>
+              </tr>
+            </thead>
+            <tbody id="station-table"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <footer>
+        <p>Weather X · Evidence-first local temperature inference</p>
+        <a href="/docs" target="_blank" rel="noreferrer">OpenAPI documentation</a>
+      </footer>
+    </main>
+    <script src="/assets/app.js" defer></script>
+  </body>
+</html>

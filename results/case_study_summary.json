@@ -1,0 +1,28 @@
+{
+  "schema": "WEATHER_X_CASE_STUDY_SUMMARY_V1",
+  "scope": {
+    "reference_location_count": 1,
+    "independent_date_count": 18,
+    "strict_reference_point_count": 413,
+    "season_boundary": "warm-season only",
+    "raw_provider_data_included": false
+  },
+  "baseline": {
+    "mae_f": 1.003978425,
+    "threshold_accuracy": 0.578692494,
+    "cross_threshold_rate": 0.421307506,
+    "p95_absolute_error_f": 2.935112684
+  },
+  "adapted_model": {
+    "mae_f": 0.882,
+    "threshold_accuracy": 0.6441,
+    "cross_threshold_rate": 0.3559,
+    "p95_absolute_error_f": 2.698
+  },
+  "claim": "continuous_error_improved_but_threshold_reliability_remained_insufficient",
+  "authority": {
+    "universal_weather_claim": false,
+    "official_observation": false,
+    "automated_decision_authority": false
+  }
+}

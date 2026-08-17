@@ -1,0 +1,61 @@
+[build-system]
+requires = ["hatchling>=1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "weather-x"
+version = "0.1.0"
+description = "Causal local-temperature inference from dense personal weather station networks."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+authors = [{ name = "backiron" }]
+keywords = [
+  "weather",
+  "personal-weather-stations",
+  "sensor-fusion",
+  "spatial-modeling",
+  "time-series",
+  "microclimate",
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Topic :: Scientific/Engineering :: Atmospheric Science",
+]
+dependencies = [
+  "fastapi>=0.115",
+  "requests>=2.32",
+  "uvicorn[standard]>=0.34",
+]
+
+[project.optional-dependencies]
+dev = [
+  "httpx>=0.28",
+  "pytest>=8.3",
+  "ruff>=0.11",
+]
+
+[project.scripts]
+weatherx = "weatherx.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/backiron/weather-x"
+Repository = "https://github.com/backiron/weather-x"
+Issues = "https://github.com/backiron/weather-x/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/weatherx"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
