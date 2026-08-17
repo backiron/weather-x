@@ -12,7 +12,7 @@
     <circle cx="93" cy="245" r="8" fill="#0f766e"/><circle cx="130" cy="268" r="8" fill="#0f766e"/>
     <circle cx="175" cy="238" r="8" fill="#0f766e"/><circle cx="218" cy="214" r="8" fill="#0f766e"/>
     <text x="78" y="320" font-size="14" fill="#475569">Observed by the PWS network</text>
-    <text x="78" y="340" font-size="13" fill="#64748b">continuous, spatial, heterogeneous</text>
+    <text x="78" y="340" font-size="13" fill="#64748b">continuous local field</text>
 
     <path d="M276 238 H320" stroke="#64748b" stroke-width="2.5" marker-end="url(#arrow)"/>
 
@@ -22,7 +22,7 @@
     <line x1="425" y1="180" x2="425" y2="284" stroke="#0f766e" stroke-width="5"/>
     <circle cx="425" cy="260" r="14" fill="#ea580c"/>
     <text x="354" y="320" font-size="14" fill="#475569">Exposure + ventilation</text>
-    <text x="354" y="340" font-size="13" fill="#64748b">one location, one instrument</text>
+    <text x="354" y="340" font-size="13" fill="#64748b">one point sensor</text>
 
     <path d="M536 238 H580" stroke="#64748b" stroke-width="2.5" marker-end="url(#arrow)"/>
 
@@ -34,17 +34,18 @@
     <text x="633" y="216" font-size="13" fill="#7c2d12">sampling window</text>
     <text x="633" y="256" font-size="13" fill="#7c2d12">QC + smoothing</text>
     <text x="633" y="296" font-size="13" fill="#7c2d12">timestamp policy</text>
-    <text x="614" y="340" font-size="13" fill="#64748b">partly hidden transformation</text>
+    <text x="614" y="320" font-size="13" fill="#475569">partly hidden</text>
+    <text x="614" y="340" font-size="13" fill="#64748b">transformation</text>
 
     <path d="M796 238 H840" stroke="#64748b" stroke-width="2.5" marker-end="url(#arrow)"/>
 
-    <rect x="850" y="125" width="135" height="225" rx="16" fill="#faf5ff" stroke="#d8b4fe" stroke-width="2"/>
-    <text x="875" y="160" font-size="18" font-weight="700" fill="#6b21a8">Provider</text>
-    <path d="M880 195 H955 M880 225 H945 M880 255 H958 M880 285 H932" stroke="#9333ea" stroke-width="8" stroke-linecap="round" opacity="0.7"/>
-    <text x="875" y="320" font-size="14" fill="#475569">revision + display</text>
-    <text x="875" y="340" font-size="13" fill="#64748b">published history value</text>
+    <rect x="850" y="125" width="145" height="225" rx="16" fill="#faf5ff" stroke="#d8b4fe" stroke-width="2"/>
+    <text x="872" y="160" font-size="18" font-weight="700" fill="#6b21a8">Provider</text>
+    <path d="M875 195 H965 M875 225 H955 M875 255 H968 M875 285 H942" stroke="#9333ea" stroke-width="8" stroke-linecap="round" opacity="0.7"/>
+    <text x="872" y="320" font-size="13" fill="#475569">revision + display</text>
+    <text x="872" y="340" font-size="13" fill="#64748b">published value</text>
 
-    <path d="M1001 238 H1045" stroke="#64748b" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <path d="M1011 238 H1045" stroke="#64748b" stroke-width="2.5" marker-end="url(#arrow)"/>
 
     <rect x="1055" y="125" width="105" height="225" rx="16" fill="#fef2f2" stroke="#fca5a5" stroke-width="2"/>
     <text x="1075" y="160" font-size="18" font-weight="700" fill="#991b1b">Bucket</text>
@@ -52,8 +53,8 @@
     <text x="1090" y="222" font-size="20" font-weight="700" fill="#991b1b">88</text>
     <rect x="1078" y="248" width="60" height="46" rx="6" fill="#fee2e2" stroke="#ef4444" stroke-width="2"/>
     <text x="1090" y="278" font-size="20" font-weight="700" fill="#991b1b">90</text>
-    <text x="1075" y="320" font-size="14" fill="#475569">discrete loss</text>
-    <text x="1075" y="340" font-size="13" fill="#64748b">one degree can flip</text>
+    <text x="1075" y="318" font-size="13" fill="#475569">thresholded</text>
+    <text x="1075" y="338" font-size="13" fill="#64748b">output</text>
 
     <rect x="55" y="386" width="1105" height="48" rx="8" fill="#0f172a"/>
     <text x="78" y="416" font-size="16" fill="#ffffff">Weather X estimates the left side well; the original application was evaluated against the far-right output.</text>

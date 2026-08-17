@@ -1,11 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="450" viewBox="0 0 1200 450" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400" role="img" aria-labelledby="title desc">
   <title id="title">Causal availability and delayed-label timeline</title>
   <desc id="desc">The observation is measured, received, used to freeze an estimate, later revealed as a reference value, and only then admitted to model learning.</desc>
-  <rect width="1200" height="450" fill="#f8fafc"/>
+  <rect width="1200" height="400" fill="#f8fafc"/>
   <text x="55" y="52" font-family="Inter,Arial,sans-serif" font-size="28" font-weight="700" fill="#0f172a">A historical value is not automatically a causal input</text>
   <text x="55" y="82" font-family="Inter,Arial,sans-serif" font-size="15" fill="#64748b">The model can use only payloads received by the freeze time; the target residual remains sealed until reveal.</text>
   <g font-family="Inter,Arial,sans-serif">
     <line x1="100" y1="230" x2="1100" y2="230" stroke="#94a3b8" stroke-width="4"/>
+    <rect x="622" y="222" width="215" height="16" rx="8" fill="#fecaca"/>
+    <line x1="622" y1="230" x2="837" y2="230" stroke="#ef4444" stroke-width="4"/>
     <path d="M1100 230 l-14 -8 v16 z" fill="#94a3b8"/>
 
     <rect x="100" y="122" width="185" height="76" rx="10" fill="#eff6ff" stroke="#93c5fd" stroke-width="2"/>
@@ -38,8 +40,8 @@
     <line x1="1052" y1="198" x2="1052" y2="230" stroke="#9333ea" stroke-width="3"/>
     <circle cx="1052" cy="230" r="8" fill="#9333ea"/>
 
-    <rect x="515" y="365" width="340" height="46" rx="8" fill="#fee2e2" stroke="#fca5a5"/>
-    <text x="540" y="394" font-size="15" font-weight="700" fill="#991b1b">Leakage zone: current residual cannot update the model here</text>
-    <path d="M622 365 V350 H837 V365" fill="none" stroke="#ef4444" stroke-width="2"/>
+    <path d="M622 342 V352 H837 V342" fill="none" stroke="#ef4444" stroke-width="2"/>
+    <rect x="455" y="352" width="550" height="34" rx="8" fill="#fee2e2" stroke="#fca5a5"/>
+    <text x="486" y="374" font-size="13" font-weight="700" fill="#991b1b">Residual sealed until reveal; earlier use would leak future information</text>
   </g>
 </svg>
