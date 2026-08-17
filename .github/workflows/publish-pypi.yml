@@ -8,7 +8,7 @@ on:
       tag:
         description: Existing stable tag to publish
         required: true
-        default: v1.0.1
+        default: v1.0.2
         type: string
 
 permissions:
@@ -73,7 +73,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: pypi
-      url: https://pypi.org/p/weatherx
+      url: https://pypi.org/p/weatherx-local
     permissions:
       id-token: write
 
