@@ -18,8 +18,7 @@
     <text x="370" y="555" font-size="13" fill="#64748b">S</text><text x="95" y="285" font-size="13" fill="#64748b">W</text>
     <text x="470" y="268" font-size="12" fill="#94a3b8">1 mi</text><text x="560" y="268" font-size="12" fill="#94a3b8">2 mi</text>
 
-    <path d="M170 470 L310 330" stroke="#2563eb" stroke-width="10" stroke-linecap="round" marker-end="url(#wind-arrow)"/>
-    <text x="105" y="500" font-size="14" font-weight="700" fill="#1d4ed8">Wind from 230° · 8 mph</text>
+    <path d="M88 458 L228 318" stroke="#2563eb" stroke-width="8" stroke-linecap="round" marker-end="url(#wind-arrow)"/>
 
     <circle cx="380" cy="280" r="19" fill="#0f172a"/>
     <circle cx="380" cy="280" r="7" fill="#ffffff"/>
@@ -27,8 +26,8 @@
     <text x="404" y="295" font-size="13" fill="#64748b">X = 88.49 F</text>
 
     <circle cx="250" cy="410" r="34" fill="#2563eb" fill-opacity="0.88" stroke="#1e3a8a" stroke-width="2"/>
-    <text x="125" y="465" font-size="15" font-weight="700" fill="#1e3a8a">S01 · 26.1%</text>
-    <text x="125" y="485" font-size="13" fill="#475569">upwind · group SW-A</text>
+    <text x="215" y="462" font-size="15" font-weight="700" fill="#1e3a8a">S01 · 26.1%</text>
+    <text x="215" y="482" font-size="13" fill="#475569">upwind · group SW-A</text>
 
     <circle cx="285" cy="382" r="31" fill="#60a5fa" fill-opacity="0.9" stroke="#1e40af" stroke-width="2"/>
     <text x="325" y="385" font-size="15" font-weight="700" fill="#1e3a8a">S02 · 21.3%</text>
@@ -45,6 +44,10 @@
     <circle cx="500" cy="448" r="24" fill="#ea580c" fill-opacity="0.84" stroke="#9a3412" stroke-width="2"/>
     <text x="532" y="445" font-size="15" font-weight="700" fill="#9a3412">S05 · 12.8%</text>
     <text x="532" y="465" font-size="13" fill="#475569">high solar · low ventilation</text>
+
+    <rect x="20" y="506" width="212" height="36" rx="8" fill="#eff6ff" stroke="#bfdbfe"/>
+    <path d="M38 529 L66 511" stroke="#2563eb" stroke-width="4" stroke-linecap="round" marker-end="url(#wind-arrow-small)"/>
+    <text x="82" y="529" font-size="13" font-weight="700" fill="#1d4ed8">Wind from 230° · 8 mph</text>
   </g>
 
   <g transform="translate(885,130)" font-family="Inter,Arial,sans-serif">
@@ -71,5 +74,6 @@
   </g>
   <defs>
     <marker id="wind-arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#2563eb"/></marker>
+    <marker id="wind-arrow-small" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2563eb"/></marker>
   </defs>
 </svg>

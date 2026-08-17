@@ -110,6 +110,29 @@ def _patterns() -> dict[str, re.Pattern[str]]:
     }
 
 
+def _article_rendering_failures(text: str) -> list[str]:
+    failures: list[str] = []
+    unsupported_macros = (r"\left", r"\right", r"\operatorname")
+    for macro in unsupported_macros:
+        if macro in text:
+            failures.append(f"unsupported_math_macro:{macro}")
+    if text.count("$$") % 2:
+        failures.append("unbalanced_display_math_delimiters")
+    return failures
+
+
+def _control_character_failure(raw: bytes) -> str | None:
+    without_crlf = raw.replace(b"\r\n", b"")
+    if b"\r" in without_crlf:
+        return "bare_carriage_return"
+    for value in raw:
+        if value < 32 and value not in {10, 13}:
+            return f"control_character_0x{value:02x}"
+    if 127 in raw:
+        return "control_character_0x7f"
+    return None
+
+
 def main() -> int:
     failures: list[str] = []
     scanned = 0
@@ -131,14 +154,23 @@ def main() -> int:
             failures.append(f"unreviewed_file_type:{relative}")
             continue
         scanned += 1
+        raw = path.read_bytes()
+        control_failure = _control_character_failure(raw)
+        if control_failure:
+            failures.append(f"{control_failure}:{relative}")
+            continue
         try:
-            text = path.read_text(encoding="utf-8")
+            text = raw.decode("utf-8")
         except UnicodeDecodeError:
             failures.append(f"non_utf8_text:{relative}")
             continue
         for name, pattern in patterns.items():
             if pattern.search(text):
                 failures.append(f"{name}:{relative}")
+        if relative == "ARTICLE.md":
+            failures.extend(
+                f"{failure}:{relative}" for failure in _article_rendering_failures(text)
+            )
 
     if failures:
         print("Public-release verification failed:")

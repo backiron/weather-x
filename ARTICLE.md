@@ -39,44 +39,44 @@ evaluated against the far-right output of a longer, partly hidden reporting chai
 
 ## 1. The first scientific decision: define the estimand
 
-Let (T(mathbf{s},t)) denote the near-surface air-temperature field at location
-(mathbf{s}) and time (t). A network of (n) personal weather stations observes noisy samples
+Let $T(\mathbf{s},t)$ denote the near-surface air-temperature field at location
+$\mathbf{s}$ and time $t$. A network of $n$ personal weather stations observes noisy samples
 
 $$
 Z_i(t_i) = T(\mathbf{s}_i,t_i) + b_i(t_i) + \epsilon_i(t_i),
 \qquad i=1,\ldots,n,
 $$
 
-where (b_i) represents systematic exposure or calibration bias and (epsilon_i) represents
+where $b_i$ represents systematic exposure or calibration bias and $\epsilon_i$ represents
 short-lived sensor noise.
 
 The intuitive objective is to estimate the physical field at the target coordinate
-(mathbf{s}_0):
+$\mathbf{s}_0$:
 
 $$
 X_t \approx T(\mathbf{s}_0,t).
 $$
 
-The published reference value is not necessarily (T(mathbf{s}_0,t)). A more realistic
+The published reference value is not necessarily $T(\mathbf{s}_0,t)$. A more realistic
 observation equation is
 
 $$
-Y_t = \mathcal{D}\!\left(
-\mathcal{P}\!\left[
-\mathcal{Q}\!\left(
-\mathcal{M}\!\left(T(\mathbf{s}_0,\tau),\; \tau \in W_t\right)
-\right)\right]\right]
+Y_t = \mathcal{D}(
+\mathcal{P}[
+\mathcal{Q}(
+\mathcal{M}(T(\mathbf{s}_0,\tau), \tau \in W_t)
+)])
 + \eta_t,
 $$
 
 where:
 
-- (mathcal{M}) is the instrument's sampling or temporal aggregation over an unknown window
-  (W_t);
-- (mathcal{Q}) is station-level quality control;
-- (mathcal{P}) is provider-side publication and revision logic;
-- (mathcal{D}) is the final display or discretization transform;
-- (eta_t) contains site, instrument, and reporting behavior not observed by the neighboring
+- $\mathcal{M}$ is the instrument's sampling or temporal aggregation over an unknown window
+  $W_t$;
+- $\mathcal{Q}$ is station-level quality control;
+- $\mathcal{P}$ is provider-side publication and revision logic;
+- $\mathcal{D}$ is the final display or discretization transform;
+- $\eta_t$ contains site, instrument, and reporting behavior not observed by the neighboring
   network.
 
 The difference
@@ -86,8 +86,8 @@ $$
 $$
 
 is not ordinary forecast noise. It is an **estimand mismatch**. Improving the spatial estimate
-(X_t) can reduce (|X_t-T(mathbf{s}_0,t)|) without eliminating
-(|X_t-Y_t|).
+$X_t$ can reduce $|X_t-T(\mathbf{s}_0,t)|$ without eliminating
+$|X_t-Y_t|$.
 
 This distinction is consistent with the broader PWS literature: dense citizen networks can reveal
 high-resolution urban patterns, but exposure, metadata, siting, and quality control are central
@@ -96,30 +96,30 @@ calibration, and measurement method as part of the observation definition [4].
 
 ## 2. Notation and causal information set
 
-For station (i) and target generation time (t_0), define:
+For station $i$ and target generation time $t_0$, define:
 
 | Symbol | Meaning |
 |---|---|
-| (mathbf{s}_0,z_0) | target coordinate and elevation |
-| (mathbf{s}_i,z_i) | station coordinate and elevation |
-| (Z_i) | latest admissible station temperature |
-| (t_i^{obs}) | physical observation time |
-| (t_i^{recv}) | first time the system received that payload |
-| (d_i,	heta_i) | distance and bearing from target to station |
-| (q_i) | frozen station reliability prior |
-| (sigma_i) | frozen historical residual scale |
-| (b_i) | frozen station bias relative to target |
-| (w_i(t_0)) | final normalized station weight |
-| (X(t_0)) | canonical Weather X estimate |
-| (t^{reveal}) | time at which a reference label becomes admissible for learning |
+| $\mathbf{s}_0,z_0$ | target coordinate and elevation |
+| $\mathbf{s}_i,z_i$ | station coordinate and elevation |
+| $Z_i$ | latest admissible station temperature |
+| $t_i^{obs}$ | physical observation time |
+| $t_i^{recv}$ | first time the system received that payload |
+| $d_i,\theta_i$ | distance and bearing from target to station |
+| $q_i$ | frozen station reliability prior |
+| $\sigma_i$ | frozen historical residual scale |
+| $b_i$ | frozen station bias relative to target |
+| $w_i(t_0)$ | final normalized station weight |
+| $X(t_0)$ | canonical Weather X estimate |
+| $t^{reveal}$ | time at which a reference label becomes admissible for learning |
 
 The admissible observation set is
 
 $$
-\mathcal{A}(t_0)=\left\{
-i:\; t_i^{obs}\le t_0,\; t_i^{recv}\le t_0,\;
-t_0-t_i^{obs}\le A_{max},\; QC_i=1
-\right\}.
+\mathcal{A}(t_0)=\lbrace
+i: t_i^{obs}\le t_0,\quad t_i^{recv}\le t_0,\quad
+t_0-t_i^{obs}\le A_{max},\quad QC_i=1
+\rbrace.
 $$
 
 For strict causal research, a missing receipt time is **unknown**, not evidence that the payload
@@ -127,11 +127,11 @@ was available. The public file interface permits a missing `received_at` for dem
 formal evaluation must either capture it prospectively or exclude that record from a latency
 claim.
 
-Let the model state at (t_0) be
+Let the model state at $t_0$ be
 
 $$
-\mathcal{M}(t_0)=\operatorname{Train}
-\left(\left\{(X_j,Y_j):t_j^{reveal}\le t_0\right\}\right).
+\mathcal{M}(t_0)=\mathrm{Train}
+(\lbrace(X_j,Y_j):t_j^{reveal}\le t_0\rbrace).
 $$
 
 The prediction is then a deterministic function
@@ -142,16 +142,16 @@ $$
 
 ### Proposition 1 — Causal admissibility
 
-If every input to (F) satisfies (t_i^{recv}\le t_0), and every label used to construct
-(mathcal{M}(t_0)) satisfies (t_j^{reveal}\le t_0), then (X(t_0)) is measurable with respect
-to the system information available by (t_0). No later payload revision or current-target label
+If every input to $F$ satisfies $t_i^{recv}\le t_0$, and every label used to construct
+$\mathcal{M}(t_0)$ satisfies $t_j^{reveal}\le t_0$, then $X(t_0)$ is measurable with respect
+to the system information available by $t_0$. No later payload revision or current-target label
 can influence the frozen estimate.
 
-**Proof.** By construction, (mathcal{A}(t_0)) contains only payloads received by (t_0).
-Similarly, (mathcal{M}(t_0)) is a function only of labels revealed by (t_0). A deterministic
-composition of quantities available in the information set (mathcal{F}_{t_0}) is itself
-(mathcal{F}_{t_0})-measurable. Therefore (F(mathcal{A}(t_0),mathcal{M}(t_0))) cannot depend on
-future information. (square)
+**Proof.** By construction, $\mathcal{A}(t_0)$ contains only payloads received by $t_0$.
+Similarly, $\mathcal{M}(t_0)$ is a function only of labels revealed by $t_0$. A deterministic
+composition of quantities available in the information set $\mathcal{F}_{t_0}$ is itself
+$\mathcal{F}_{t_0}$-measurable. Therefore
+$F(\mathcal{A}(t_0),\mathcal{M}(t_0))$ cannot depend on future information. $\square$
 
 ![Figure 2. Causal observation and delayed-label timeline.](docs/assets/figure-04-causal-timeline.svg)
 
@@ -164,20 +164,19 @@ The target-to-station great-circle distance is computed with the haversine equat
 
 $$
 d_i = 2R\arcsin\sqrt{
-\sin^2\left(\frac{\phi_i-\phi_0}{2}\right)
+\sin^2(\frac{\phi_i-\phi_0}{2})
 +\cos\phi_0\cos\phi_i
-\sin^2\left(\frac{\lambda_i-\lambda_0}{2}\right)},
+\sin^2(\frac{\lambda_i-\lambda_0}{2})},
 $$
 
-where (phi) and (lambda) are latitude and longitude in radians. The initial bearing is
+where $\phi$ and $\lambda$ are latitude and longitude in radians. The initial bearing is
 
 $$
-\theta_i = \operatorname{atan2}
-\left(
+\theta_i = \mathrm{atan2}(
 \sin\Delta\lambda\cos\phi_i,
 \cos\phi_0\sin\phi_i-
 \sin\phi_0\cos\phi_i\cos\Delta\lambda
-\right).
+).
 $$
 
 Distance alone is not enough. Two nearby stations on the same block may be less informative than
@@ -192,7 +191,7 @@ adjustments.*
 
 ## 4. Target-equivalent station temperature
 
-Let (gamma) be the configurable positive lapse-rate magnitude in degrees Fahrenheit per 1,000
+Let $\gamma$ be the configurable positive lapse-rate magnitude in degrees Fahrenheit per 1,000
 feet. A station above the target is adjusted warmer when translated down to target elevation:
 
 $$
@@ -210,13 +209,12 @@ The station bias can be estimated from earlier revealed residuals. A robust fixe
 
 $$
 \widehat b_i =
-\operatorname{median}_{t\in\mathcal{H}_{train}}
-\left[
+\mathrm{median}_{t\in\mathcal{H}_{train}}[
 Z_i(t)+\gamma\frac{z_i-z_0}{1000}-Y_t
-\right].
+].
 $$
 
-The public reference implementation accepts a frozen (b_i) and residual scale (sigma_i). In
+The public reference implementation accepts a frozen $b_i$ and residual scale $\sigma_i$. In
 the broader research audit, the residual was decomposed conceptually as
 
 $$
@@ -242,11 +240,11 @@ $$
 \widehat{\boldsymbol\beta}
 =\arg\min_{\boldsymbol\beta}
 \sum_{t\in\mathcal{H}_{train}}
-\rho_\delta\!\left(r_{i,t}-\mathbf{x}_{i,t}^{\top}\boldsymbol\beta\right)
+\rho_\delta(r_{i,t}-\mathbf{x}_{i,t}^{\top}\boldsymbol\beta)
 +\lambda\lVert\boldsymbol\beta\rVert_2^2,
 $$
 
-with Huber loss (ho_delta), ridge penalty (lambda), and validation grouped by date rather
+with Huber loss $\rho_\delta$, ridge penalty $\lambda$, and validation grouped by date rather
 than randomly split snapshots.
 
 ## 5. Multiplicative station weights
@@ -255,43 +253,43 @@ Weather X avoids a single opaque score. The raw influence is a product of interp
 
 ### 5.1 Freshness
 
-With observation age (a_i=t_0-t_i^{obs}) and maximum age (A_{max}), the public estimator uses
+With observation age $a_i=t_0-t_i^{obs}$ and maximum age $A_{max}$, the public estimator uses
 
 $$
-f_i^{fresh}=\max\left(0.15,\;1-\frac{a_i}{A_{max}}\right),
+f_i^{fresh}=\max(0.15,1-\frac{a_i}{A_{max}}),
 \qquad 0\le a_i\le A_{max}.
 $$
 
-Records older than (A_{max}) are excluded. The 0.15 floor prevents a still-admissible station
+Records older than $A_{max}$ are excluded. The 0.15 floor prevents a still-admissible station
 from disappearing discontinuously just before the cutoff.
 
 ### 5.2 Distance kernel
 
-For configurable spatial scale (ell>0),
+For configurable spatial scale $\ell>0$,
 
 $$
 f_i^{dist}=\frac{1}{1+d_i/\ell}.
 $$
 
-This kernel is bounded, monotone, and less singular than (1/d_i^p) near the target.
+This kernel is bounded, monotone, and less singular than $1/d_i^p$ near the target.
 
 ### 5.3 Wind-aligned advection
 
-Let (	heta^{wind}) be the meteorological direction **from** which the wind originates. Define
+Let $\theta^{wind}$ be the meteorological direction **from** which the wind originates. Define
 
 $$
-c_i=\cos\left(\theta_i-\theta^{wind}\right).
+c_i=\cos(\theta_i-\theta^{wind}).
 $$
 
 When wind speed is at least 3 mph, the current bounded factor is
 
 $$
 f_i^{wind}
-=\operatorname{clip}_{[0.55,1.35]}\left(1+0.30c_i\right).
+=\mathrm{clip}_{[0.55,1.35]}(1+0.30c_i).
 $$
 
-An aligned upwind station has (c_i\approx1); a downwind station has (c_i\approx-1). Below the
-wind-speed gate, (f_i^{wind}=1).
+An aligned upwind station has $c_i\approx1$; a downwind station has $c_i\approx-1$. Below the
+wind-speed gate, $f_i^{wind}=1$.
 
 ### 5.4 Radiation and ventilation
 
@@ -312,7 +310,7 @@ high-radiation, poorly ventilated household sensor deserves less influence.
 
 ### 5.5 Reliability and residual precision
 
-Let (q_i\in[0,1]) be a frozen reliability prior and let (sigma_i) be a historical residual
+Let $q_i\in[0,1]$ be a frozen reliability prior and let $\sigma_i$ be a historical residual
 scale. The raw station weight is
 
 $$
@@ -324,14 +322,14 @@ $$
 
 ### 5.6 Correlation-group and sector penalties
 
-If (m_{g(i)}) usable sensors share station (i)'s correlation group and (m_{s(i)}) usable
+If $m_{g(i)}$ usable sensors share station $i$'s correlation group and $m_{s(i)}$ usable
 sensors share its directional sector, then
 
 $$
 r_i^*=r_i\cdot m_{g(i)}^{-\alpha}\cdot m_{s(i)}^{-\beta},
 $$
 
-where the demonstration configuration uses (alpha=0.5) and (eta=0.35). The normalized weight
+where the demonstration configuration uses $\alpha=0.5$ and $\beta=0.35$. The normalized weight
 is
 
 $$
@@ -349,20 +347,20 @@ replayed, and challenged.*
 
 ### Proposition 2 — Duplicate-group growth is sublinear
 
-Assume (m) otherwise identical stations in one correlation group, each with unpenalized weight
-(r), and ignore the sector penalty. Their total adjusted group mass is
+Assume $m$ otherwise identical stations in one correlation group, each with unpenalized weight
+$r$, and ignore the sector penalty. Their total adjusted group mass is
 
 $$
 R_g(m)=\sum_{i=1}^{m}r m^{-\alpha}=r m^{1-\alpha}.
 $$
 
-For (0<\alpha<1), group influence grows sublinearly. With (alpha=0.5), doubling identical
-sensors multiplies their group mass by (sqrt{2}), not by 2. With (alpha=1), total group mass is
-exactly capped at (r).
+For $0<\alpha<1$, group influence grows sublinearly. With $\alpha=0.5$, doubling identical
+sensors multiplies their group mass by $\sqrt{2}$, not by 2. With $\alpha=1$, total group mass is
+exactly capped at $r$.
 
-**Proof.** Every member receives multiplier (m^{-\alpha}). Summing (m) equal terms gives
-(mrm^{-\alpha}=rm^{1-\alpha}). Since (1-\alpha\in(0,1)), the function is concave and sublinear.
-(square)
+**Proof.** Every member receives multiplier $m^{-\alpha}$. Summing $m$ equal terms gives
+$mrm^{-\alpha}=rm^{1-\alpha}$. Since $1-\alpha\in(0,1)$, the function is concave and sublinear.
+$\square$
 
 This penalty is soft: it reduces duplicate voting but does not prove statistical independence.
 
@@ -378,23 +376,23 @@ $$
 
 ### Proposition 3 — Weighted least-squares interpretation
 
-(X(t_0)) is the unique minimizer of
+$X(t_0)$ is the unique minimizer of
 
 $$
-J(x)=\sum_i w_i\left(x-\widetilde T_i\right)^2
+J(x)=\sum_i w_i(x-\widetilde T_i)^2
 $$
 
-whenever (w_i\ge0), (sum_iw_i=1), and at least one (w_i>0).
+whenever $w_i\ge0$, $\sum_iw_i=1$, and at least one $w_i>0$.
 
 **Proof.** Differentiate:
 
 $$
 \frac{dJ}{dx}=2\sum_iw_i(x-\widetilde T_i)
-=2\left(x-\sum_iw_i\widetilde T_i\right).
+=2(x-\sum_iw_i\widetilde T_i).
 $$
 
-The stationary point is (x=\sum_iw_i\widetilde T_i=X). Also
-(d^2J/dx^2=2\sum_iw_i=2>0), so the stationary point is the unique minimum. (square)
+The stationary point is $x=\sum_iw_i\widetilde T_i=X$. Also
+$d^2J/dx^2=2\sum_iw_i=2>0$, so the stationary point is the unique minimum. $\square$
 
 The weighted network spread is
 
@@ -410,20 +408,20 @@ $$
 
 ### Proposition 4 — Effective-sample-size bounds
 
-For (n) nonnegative normalized weights,
+For $n$ nonnegative normalized weights,
 
 $$
 1\le N_{eff}\le n.
 $$
 
-**Proof.** Since (0\le w_i\le1), (sum_iw_i^2\lesum_iw_i=1), so
-(N_{eff}\ge1). By Cauchy–Schwarz,
-((\sum_iw_i)^2\le n\sum_iw_i^2). Because (sum_iw_i=1),
-(sum_iw_i^2\ge1/n), giving (N_{eff}\le n). Equality (N_{eff}=n) occurs only for equal
-weights; (N_{eff}=1) occurs when one station owns all weight. (square)
+**Proof.** Since $0\le w_i\le1$, $\sum_iw_i^2\le\sum_iw_i=1$, so
+$N_{eff}\ge1$. By Cauchy–Schwarz,
+$(\sum_iw_i)^2\le n\sum_iw_i^2$. Because $\sum_iw_i=1$,
+$\sum_iw_i^2\ge1/n$, giving $N_{eff}\le n$. Equality $N_{eff}=n$ occurs only for equal
+weights; $N_{eff}=1$ occurs when one station owns all weight. $\square$
 
 The public uncertainty model combines observed network disagreement with a configurable model
-floor (sigma_0):
+floor $\sigma_0$:
 
 $$
 \sigma_X^2=s_{net}^2+\frac{\sigma_0^2}{N_{eff}}.
@@ -432,7 +430,7 @@ $$
 The displayed 95% diagnostic interval is
 
 $$
-I_{0.95}=\left[X-1.96\sigma_X,\;X+1.96\sigma_X\right].
+I_{0.95}=[X-1.96\sigma_X,X+1.96\sigma_X].
 $$
 
 This is an empirical engineering interval, not a guaranteed meteorological confidence interval.
@@ -446,50 +444,50 @@ $$
 Y\mid\mathcal{F}_{t_0}\sim\mathcal{N}(X,\sigma_X^2).
 $$
 
-For bucket (B_k=[b_k,b_{k+1})), its probability mass is
+For bucket $B_k=[b_k,b_{k+1})$, its probability mass is
 
 $$
 p_k
 =\Pr(Y\in B_k)
-=\Phi\left(\frac{b_{k+1}-X}{\sigma_X}\right)
--\Phi\left(\frac{b_k-X}{\sigma_X}\right),
+=\Phi(\frac{b_{k+1}-X}{\sigma_X})
+-\Phi(\frac{b_k-X}{\sigma_X}),
 $$
 
-where (Phi) is the standard normal cumulative distribution function.
+where $\Phi$ is the standard normal cumulative distribution function.
 
 ![Figure 5. Continuous uncertainty mapped into two-degree buckets.](docs/assets/figure-05-threshold-risk.svg)
 
-*Figure 5 — In the synthetic example, (X=88.49) F and (sigma_X=0.88) F. The nearest boundary
+*Figure 5 — In the synthetic example, $X=88.49$ F and $\sigma_X=0.88$ F. The nearest boundary
 is only 0.49 F away, leaving substantial probability mass in the neighboring bucket.*
 
 Let
 
 $$
-d(X)=\min(X-b_k,\;b_{k+1}-X)
+d(X)=\min(X-b_k,b_{k+1}-X)
 $$
 
 be the distance from the estimate to its nearest bucket boundary. Near one dominant boundary, the
 crossing probability behaves approximately as
 
 $$
-P_{cross}\approx\Phi\left(-\frac{d(X)}{\sigma_X}\right).
+P_{cross}\approx\Phi(-\frac{d(X)}{\sigma_X}).
 $$
 
-This ratio (d/\sigma_X), not MAE alone, controls immediate threshold risk.
+This ratio $d/\sigma_X$, not MAE alone, controls immediate threshold risk.
 
 ### Proposition 5 — Lower MAE does not imply better bucket accuracy
 
-Consider a boundary at 0 and true value (Y=0.2). Model A predicts (-0.1), so its absolute
-error is 0.3 but it selects the wrong side of the boundary. Model B predicts (0.7), so its
+Consider a boundary at 0 and true value $Y=0.2$. Model A predicts $-0.1$, so its absolute
+error is 0.3 but it selects the wrong side of the boundary. Model B predicts $0.7$, so its
 absolute error is 0.5 but it selects the correct side. Therefore a model may have lower continuous
-error and worse categorical accuracy. (square)
+error and worse categorical accuracy. $\square$
 
 This counterexample explains the central project result: a technically improved temperature
 estimate can remain unsuitable for a threshold-sensitive decision.
 
 ## 8. Why exact point-sensor reconstruction has an error floor
 
-Let (mathbf{Z}_t) contain every causally available neighboring observation and feature. Under
+Let $\mathbf{Z}_t$ contain every causally available neighboring observation and feature. Under
 squared loss, the best possible predictor is the conditional expectation
 
 $$
@@ -499,15 +497,15 @@ $$
 The minimum achievable mean-squared error using those inputs is
 
 $$
-\operatorname{MSE}_{min}
-=\mathbb{E}\left[\operatorname{Var}(Y_t\mid\mathbf{Z}_t)\right].
+\mathrm{MSE}_{min}
+=\mathbb{E}[\mathrm{Var}(Y_t\mid\mathbf{Z}_t)].
 $$
 
 If reference-site exposure, sub-minute fluctuations, internal smoothing, or provider revisions
 remain unobserved, then
 
 $$
-\operatorname{Var}(Y_t\mid\mathbf{Z}_t)>0.
+\mathrm{Var}(Y_t\mid\mathbf{Z}_t)>0.
 $$
 
 No rearrangement of neighboring-station weights can force this conditional variance to zero.
@@ -528,7 +526,7 @@ The evaluation contract was designed around four separations:
 4. **continuous versus categorical loss:** MAE improvement cannot substitute for threshold
    reliability.
 
-For (N) strict comparable reference points, continuous accuracy is
+For $N$ strict comparable reference points, continuous accuracy is
 
 $$
 MAE=\frac{1}{N}\sum_{t=1}^{N}|X_t-Y_t|.
@@ -537,10 +535,10 @@ $$
 The 95th-percentile absolute error is
 
 $$
-Q_{0.95}=\operatorname{Quantile}_{0.95}\left(\{|X_t-Y_t|\}_{t=1}^{N}\right).
+Q_{0.95}=\mathrm{Quantile}_{0.95}(\lbrace|X_t-Y_t|\rbrace_{t=1}^{N}).
 $$
 
-For bucket function (B(\cdot)), threshold accuracy and cross-threshold error are
+For bucket function $B(\cdot)$, threshold accuracy and cross-threshold error are
 
 $$
 A_{bucket}=\frac{1}{N}\sum_{t=1}^{N}\mathbf{1}[B(X_t)=B(Y_t)],
@@ -690,8 +688,8 @@ weatherx estimate \
 pytest
 ```
 
-The synthetic run produces (X=88.49) F, (sigma_X=0.88) F, a 95% diagnostic interval of
-86.77–90.21 F, and (N_{eff}=4.77) from five usable stations.
+The synthetic run produces $X=88.49$ F, $\sigma_X=0.88$ F, a 95% diagnostic interval of
+86.77–90.21 F, and $N_{eff}=4.77$ from five usable stations.
 
 The release scanner rejects private identifiers, production names, common secret patterns,
 database artifacts, and non-English public text. The release manifest records SHA-256 hashes for
