@@ -3,11 +3,18 @@
 All notable public changes to Weather X are documented here. The project follows Semantic
 Versioning for its documented CLI, Python API, JSON input contracts, and HTTP endpoints.
 
+## [1.0.2] - 2026-08-16
+
+This packaging-only release publishes the project under the accepted PyPI distribution name
+`weatherx-local`. The human-facing project name remains Weather X, and the Python import package
+and CLI remain `weatherx`. There are no estimator, data-contract, API, or scientific-claim changes
+from 1.0.0.
+
 ## [1.0.1] - 2026-08-16
 
-This packaging-only release publishes the project under the PyPI distribution name `weatherx`.
-The human-facing project name remains Weather X, and the Python import package and CLI remain
-`weatherx`. There are no estimator, data-contract, API, or scientific-claim changes from 1.0.0.
+This packaging-only GitHub release attempted to use the PyPI distribution name `weatherx`.
+PyPI rejected that name under its project-name similarity protection, so version 1.0.1 was not
+published to PyPI. There were no estimator, data-contract, API, or scientific-claim changes.
 
 ## [1.0.0] - 2026-08-16
 
@@ -33,5 +40,6 @@ requirement of the original threshold-sensitive downstream use. Version 1.0.0 st
 software interfaces and reproducible research artifact; it does not claim universal accuracy or
 official-observation status.
 
+[1.0.2]: https://github.com/backiron/weather-x/releases/tag/v1.0.2
 [1.0.1]: https://github.com/backiron/weather-x/releases/tag/v1.0.1
 [1.0.0]: https://github.com/backiron/weather-x/releases/tag/v1.0.0

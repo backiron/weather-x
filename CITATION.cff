@@ -4,7 +4,7 @@ title: "Weather X: Causal Local-Temperature Inference from Personal Weather Stat
 type: software
 authors:
   - name: "backiron"
-version: 1.0.1
+version: 1.0.2
 date-released: 2026-08-16
 license: MIT
 repository-code: "https://github.com/backiron/weather-x"

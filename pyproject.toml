@@ -3,8 +3,8 @@ requires = ["hatchling>=1.26"]
 build-backend = "hatchling.build"
 
 [project]
-name = "weatherx"
-version = "1.0.1"
+name = "weatherx-local"
+version = "1.0.2"
 description = "Causal local-temperature inference from dense personal weather station networks."
 readme = "README.md"
 requires-python = ">=3.11"

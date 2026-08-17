@@ -8,7 +8,7 @@ from weatherx import __version__
 from weatherx.api import create_app
 
 ROOT = Path(__file__).resolve().parents[1]
-STABLE_VERSION = "1.0.1"
+STABLE_VERSION = "1.0.2"
 
 
 def test_stable_release_metadata_is_consistent() -> None:
@@ -17,7 +17,7 @@ def test_stable_release_metadata_is_consistent() -> None:
     changelog = (ROOT / "CHANGELOG.md").read_text(encoding="utf-8")
 
     assert project["version"] == STABLE_VERSION
-    assert project["name"] == "weatherx"
+    assert project["name"] == "weatherx-local"
     assert __version__ == STABLE_VERSION
     assert create_app().version == STABLE_VERSION
     assert "Development Status :: 5 - Production/Stable" in project["classifiers"]
