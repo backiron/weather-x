@@ -1,7 +1,13 @@
 # Weather X
 
 [![CI](https://github.com/backiron/weather-x/actions/workflows/ci.yml/badge.svg)](https://github.com/backiron/weather-x/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/backiron/weather-x)](https://github.com/backiron/weather-x/releases/latest)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
+**Current stable release: v1.0.0.** This release establishes the documented CLI, Python API,
+JSON input contracts, and HTTP endpoints as the first stable public interface. Stable software
+does not imply universal scientific validity; the case-study and responsible-use limits remain
+part of the release contract.
 
 Weather X estimates a local near-surface air temperature from a dense network of personal
 weather stations. It combines spatial geometry, elevation adjustment, observation freshness,
@@ -15,6 +21,8 @@ system.
 
 Read the full mathematical research note: [Weather X: Causal Reconstruction of Local Temperature
 from a Dense Personal Weather Station Network](ARTICLE.md).
+
+Release history is documented in [CHANGELOG.md](CHANGELOG.md).
 
 > Weather X does not replace an official weather station. It estimates a spatially filtered
 > local temperature state from imperfect crowd-sourced sensors.

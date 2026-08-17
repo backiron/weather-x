@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "weather-x"
-version = "0.1.0"
+version = "1.0.0"
 description = "Causal local-temperature inference from dense personal weather station networks."
 readme = "README.md"
 requires-python = ">=3.11"
@@ -19,10 +19,12 @@ keywords = [
   "microclimate",
 ]
 classifiers = [
-  "Development Status :: 3 - Alpha",
+  "Development Status :: 5 - Production/Stable",
   "License :: OSI Approved :: MIT License",
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
   "Topic :: Scientific/Engineering :: Atmospheric Science",
 ]
 dependencies = [
@@ -45,6 +47,7 @@ weatherx = "weatherx.cli:main"
 Homepage = "https://github.com/backiron/weather-x"
 Repository = "https://github.com/backiron/weather-x"
 Issues = "https://github.com/backiron/weather-x/issues"
+Changelog = "https://github.com/backiron/weather-x/blob/main/CHANGELOG.md"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/weatherx"]
