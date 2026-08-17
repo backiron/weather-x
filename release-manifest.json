@@ -1,10 +1,11 @@
 {
-  "file_count": 57,
+  "file_count": 58,
   "files": {
     ".dockerignore": "25d45d262a8d8c589d5066a8529f82b66e9457479b5fe0c289060bf4b7a2eb57",
     ".env.example": "dbd898fd7c0b5fe02254917cf04f30a051dbdae28aecb921c1242a04958f2188",
     ".gitattributes": "1d66749d1ffae745779df1a44bd2404240ff260608514a29a39c4f07c41ec412",
     ".github/workflows/ci.yml": "0f88aebfdc92512165f2e0000cdffd9d3ae03500575b03dfa0fd7740bccc55da",
+    ".github/workflows/publish-pypi.yml": "2243466f2d5366c2fb37dd2147c2bc8d70a158738007d48bd0f1390b30edc8b9",
     ".gitignore": "407969932a0571e0babf0cf1a45cd2b2d0330abc64e281586e4802905bd1bb6d",
     "ARTICLE.md": "59041cf2c061eaf693362862609cc366d690b844807eabf57068c42e93784199",
     "CHANGELOG.md": "265ff98d06f3afc3ca29b688dd0f8d0628136f24bd0f4658c43fb545cb998dde",
