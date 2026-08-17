@@ -8,6 +8,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 
+from weatherx import __version__
 from weatherx.estimator import estimate_temperature
 from weatherx.evidence import write_estimate_evidence
 from weatherx.models import load_network_config, load_observations, parse_utc
@@ -20,7 +21,7 @@ def _path(name: str, default: str) -> Path:
 def create_app() -> FastAPI:
     app = FastAPI(
         title="Weather X",
-        version="0.1.0",
+        version=__version__,
         description="Experimental local-temperature inference from personal weather stations.",
     )
 
