@@ -64,7 +64,7 @@ $$
 Y_t = \mathcal{D}(
 \mathcal{P}[
 \mathcal{Q}(
-\mathcal{M}(T(\mathbf{s}_0,\tau),\; \tau \in W_t)
+\mathcal{M}(T(\mathbf{s}_0,\tau), \tau \in W_t)
 )])
 + \eta_t,
 $$
@@ -116,10 +116,10 @@ For station $i$ and target generation time $t_0$, define:
 The admissible observation set is
 
 $$
-\mathcal{A}(t_0)=\{
-i:\; t_i^{obs}\le t_0,\; t_i^{recv}\le t_0,\;
-t_0-t_i^{obs}\le A_{max},\; QC_i=1
-\}.
+\mathcal{A}(t_0)=\lbrace
+i: t_i^{obs}\le t_0,\quad t_i^{recv}\le t_0,\quad
+t_0-t_i^{obs}\le A_{max},\quad QC_i=1
+\rbrace.
 $$
 
 For strict causal research, a missing receipt time is **unknown**, not evidence that the payload
@@ -131,7 +131,7 @@ Let the model state at $t_0$ be
 
 $$
 \mathcal{M}(t_0)=\mathrm{Train}
-(\{(X_j,Y_j):t_j^{reveal}\le t_0\}).
+(\lbrace(X_j,Y_j):t_j^{reveal}\le t_0\rbrace).
 $$
 
 The prediction is then a deterministic function
@@ -256,7 +256,7 @@ Weather X avoids a single opaque score. The raw influence is a product of interp
 With observation age $a_i=t_0-t_i^{obs}$ and maximum age $A_{max}$, the public estimator uses
 
 $$
-f_i^{fresh}=\max(0.15,\;1-\frac{a_i}{A_{max}}),
+f_i^{fresh}=\max(0.15,1-\frac{a_i}{A_{max}}),
 \qquad 0\le a_i\le A_{max}.
 $$
 
@@ -430,7 +430,7 @@ $$
 The displayed 95% diagnostic interval is
 
 $$
-I_{0.95}=[X-1.96\sigma_X,\;X+1.96\sigma_X].
+I_{0.95}=[X-1.96\sigma_X,X+1.96\sigma_X].
 $$
 
 This is an empirical engineering interval, not a guaranteed meteorological confidence interval.
@@ -463,7 +463,7 @@ is only 0.49 F away, leaving substantial probability mass in the neighboring buc
 Let
 
 $$
-d(X)=\min(X-b_k,\;b_{k+1}-X)
+d(X)=\min(X-b_k,b_{k+1}-X)
 $$
 
 be the distance from the estimate to its nearest bucket boundary. Near one dominant boundary, the
@@ -535,7 +535,7 @@ $$
 The 95th-percentile absolute error is
 
 $$
-Q_{0.95}=\mathrm{Quantile}_{0.95}(\{|X_t-Y_t|\}_{t=1}^{N}).
+Q_{0.95}=\mathrm{Quantile}_{0.95}(\lbrace|X_t-Y_t|\rbrace_{t=1}^{N}).
 $$
 
 For bucket function $B(\cdot)$, threshold accuracy and cross-threshold error are
