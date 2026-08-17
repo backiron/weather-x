@@ -1,0 +1,88 @@
+name: Publish to PyPI
+
+run-name: Publish ${{ inputs.tag }} to PyPI
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing stable tag to publish
+        required: true
+        default: v1.0.0
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build and verify distributions
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Validate release tag input
+        env:
+          RELEASE_TAG: ${{ inputs.tag }}
+        run: |
+          if [[ ! "$RELEASE_TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "Release tag must use the form vMAJOR.MINOR.PATCH."
+            exit 1
+          fi
+
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ inputs.tag }}
+          persist-credentials: false
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+          cache: pip
+
+      - name: Install build and verification dependencies
+        run: python -m pip install build -e ".[dev]"
+
+      - name: Verify tag and package version match
+        env:
+          RELEASE_TAG: ${{ inputs.tag }}
+        run: |
+          PACKAGE_VERSION="$(python -c 'import weatherx; print(weatherx.__version__)')"
+          test "v$PACKAGE_VERSION" = "$RELEASE_TAG"
+
+      - name: Run release checks
+        run: |
+          python -m ruff check .
+          python -m ruff format --check .
+          python -m pytest -q
+          python scripts/verify_public_release.py
+          python scripts/verify_release_manifest.py
+
+      - name: Build wheel and source distribution
+        run: python -m build
+
+      - name: Upload verified distributions
+        uses: actions/upload-artifact@v5
+        with:
+          name: python-package-distributions
+          path: dist/
+          if-no-files-found: error
+
+  publish:
+    name: Publish distributions to PyPI
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/p/weather-x
+    permissions:
+      id-token: write
+
+    steps:
+      - name: Download verified distributions
+        uses: actions/download-artifact@v6
+        with:
+          name: python-package-distributions
+          path: dist/
+
+      - name: Publish package distributions
+        uses: pypa/gh-action-pypi-publish@release/v1
